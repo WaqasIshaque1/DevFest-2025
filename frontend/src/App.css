@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+.App {
+  text-align: center;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* From Uiverse.io by mrhyddenn */ 
+button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  z-index: 9999;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  scale: 1.5;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+svg.filters { height:0; width: 0; position: absolute; z-index:-1; }
+.header-text {
+    color: #c8c2bd;
+    font-size: 3em;
+    text-align: center;
+    line-height: 1.0625;
+    font-weight: 600;
+    letter-spacing: -0.009em;
+}
+.glow-filter{
+    position: relative;
+    display: inline-block;
+    scale: 1;
+
+    animation: onloadscale 1s ease-out forwards;
+}
+.glow-filter::before{
+    content: attr(data-text);
+    position: absolute;
+    pointer-events: none;
+    color:  #fffaf6;
+    background: linear-gradient(0deg, #dfe5ee 0%, #fffaf6 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: url(#glow-4);
+    -moz-filter: url(#glow-4);
+    -webkit-filter: url(#glow-4);
+
+    opacity: 0;
+    animation: onloadopacity 1s ease-out forwards;
+}
+@keyframes onloadscale {
+    24% { scale: 1; }
+    100% { scale: 1.02; }
+}
+@keyframes onloadopacity {
+    24% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+p {
+    position: absolute;
+    color:  #86868b;
+    font-weight: 600;
+    background: linear-gradient(0deg,#86868b 0%, #bdc2c9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: 0; bottom: 0; margin: auto;
+    height: fit-content;
+    translate: 0 12em;
+    max-width: 28em;
+    text-align: center;
+}
+p span {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    -webkit-text-fill-color:#e7dfd6;
+    font-weight: 1000;
+}
+
+
+.bg {
+    width: 100%; height: 100%;
+    max-width: 44em;
+    position: absolute;
+}
+.bg > div {
+    position: absolute;
+    scale: 1.2;
+    opacity: 0.6;
+}
+.bg > div:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    border-radius: 100em;
+    box-shadow: 
+    inset 0 0 4em 3em rgba(238, 200, 175, 0.2),
+    inset 0 0 2em 0.4em rgba(238, 200, 175, 0.2),
+    0 0 0.1em 0.1em rgba(238, 200, 175, 0.2),
+    0 0 1em 0.4em rgba(238, 200, 175, 0.3);
+
+    translate: 0 -70%;
+    animation: onloadbgt 1s ease-in-out forwards;
+}
+.bg > div:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    border-radius: 100em;
+    box-shadow: 
+    inset 0 0 4em 3em rgba(238, 200, 175, 0.2),
+    inset 0 0 2em 0.4em rgba(238, 200, 175, 0.2),
+    0 0 0.1em 0.1em rgba(238, 200, 175, 0.2),
+    0 0 1em 0.4em rgba(238, 200, 175, 0.3);
+    
+    translate: 0 70%;
+    animation: onloadbgb 1s ease-in-out forwards;
+}
+@keyframes onloadbgt {
+    0% { translate: 0 -70%; opacity: 0.3; }
+    100% { translate: 0 -64%; opacity: 0.8; }
+}
+@keyframes onloadbgb {
+    0% { translate: 0 70%; opacity: 0.3; }
+    100% { translate: 0 64%; opacity: 0.8; }
+}
